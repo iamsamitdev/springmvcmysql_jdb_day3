@@ -1,0 +1,14 @@
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+.error{
+	color: red;
+	padding-top: 8px;
+	display: block;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+	font-weight: bold;
+	color: red;
+}

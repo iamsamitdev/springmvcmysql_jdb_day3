@@ -1,0 +1,67 @@
+<html layout:decorate="~{frontend/layouts/default_layout}">
+<head>
+    <title>Users List</title>
+</head>
+<body>
+    <div layout:fragment="content">
+
+        <div class="container-fluid">
+
+            <div class="row py-4">
+                <div class="col-md-6"><h2>User List</h2></div>
+                <div class="col-md-6 text-right">
+                    <a href="/adduser" class="btn btn-info">Add new</a>
+                </div>
+            </div>
+
+            <div class="row px-2">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="bg-primary text-white">
+                            <th>ID</th>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                            <th>Manage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="user:${listUser}">
+                            <td th:text="${user.id}"></td>
+                            <td th:text="${user.firstname}"></td>
+                            <td th:text="${user.lastname}"></td>
+                            <td th:text="${user.email}"></td>
+                            <td style="width: 180px;">
+                                <a th:href="@{/edituser/}+${user.id}" class="btn btn-warning">Edit</a>
+                                <a th:href="@{/deleteuser/}+${user.id}" class="btn btn-danger" onclick="return confirm('Confirmed to delete this item ?')">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation">
+                  <ul class="pagination">
+                    <li th:if="${listUser.hasPrevious()}" class="page-item">
+                        <a th:href="@{'/users?page=' + ${listUser.number-1}}" class="page-link">
+                            <span aria-hidden="true">Prev</span>
+                        </a>
+                    </li>
+
+                    <li 
+                        th:each="i : ${#numbers.sequence(0, listUser.totalPages - 1)}" 
+                        th:class="${i} == ${listUser.number} ? 'page-item active'">
+                        <a class="page-link" th:href="@{'/users?page=' + ${i}}" th:text="${i} + 1"></a>
+                    </li>
+
+                    <li th:if="${listUser.hasNext()}" class="page-item">
+                        <a th:href="@{'/users?page=' + ${listUser.number+1}}" class="page-link">
+                            <span aria-hidden="true">Next</span>
+                        </a>
+                    </li>
+                  </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

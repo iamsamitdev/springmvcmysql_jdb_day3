@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html layout:decorate="~{backend/layouts/default_layout}">
+<head>
+<title>Dashboard</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container-fluid">
+			<div class="card-header mb-3"><h3>Report</h3></div>
+			<div class="row">
+				<div class="col-md-6">
+					<canvas id="lineChart" width="100" height="70"></canvas>
+				</div>
+				<div class="col-md-6">
+					<canvas id="pieChart" width="100" height="70"></canvas>
+				</div>
+			</div>
+			
+			<div class="card-header my-3"><h3>Recent Product</h3></div>
+			<table class="table table-bordered">
+				<thead>
+					<tr class="bg-info text-light" >
+						<th>ID</th>
+						<th>Name</th>
+						<th>Price</th>
+						<th>Qty</th>
+						<th>Status</th>
+						<th>Manage</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Huawei P30 Pro</td>
+						<td>31,500.00</td>
+						<td>25</td>
+						<td>in stock</td>
+						<td style="width:200px">
+							<a href="#" class="btn btn-warning">Edit</a>
+							<a href="#" class="btn btn-danger">Delete</a>
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Huawei P30 Pro</td>
+						<td>31,500.00</td>
+						<td>25</td>
+						<td>in stock</td>
+						<td style="width:200px">
+							<a href="#" class="btn btn-warning">Edit</a>
+							<a href="#" class="btn btn-danger">Delete</a>
+						</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Huawei P30 Pro</td>
+						<td>31,500.00</td>
+						<td>25</td>
+						<td>in stock</td>
+						<td style="width:200px">
+							<a href="#" class="btn btn-warning">Edit</a>
+							<a href="#" class="btn btn-danger">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</div>
+		.
+	</div>
+</body>
+</html>

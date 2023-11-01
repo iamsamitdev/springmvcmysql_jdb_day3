@@ -1,0 +1,50 @@
+<html layout:decorate="~{frontend/layouts/default_layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="container-fluid">
+            <div class="row my-3">
+                <div class="col-md-6"><h1 class="h3 mb-2 text-gray-800 mb-4">Add User</h1></div>
+                <div class="col-md-6 text-right"><a href="/users" class="btn btn-info"><i class="fas fa-chevron-left"></i> Back</a></div>
+            </div>
+            <form th:action="@{/saveuser}" method="post" th:object="${user}">
+                <div class="form-group row">
+                    <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="firstname" id="firstname" class="form-control"
+                        th:field="*{firstname}">
+                        <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}" th:class="error"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lastname" class="col-sm-2 col-form-label">Lastname</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="lastname" id="lastname" class="form-control"
+                        th:field="*{lastname}">
+                        <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" th:class="error"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="email" id="email" class="form-control"
+                        th:field="*{email}">
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:class="error"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

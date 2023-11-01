@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html layout:decorate="~{frontend/layouts/default_layout}">
+<head>
+<title>Login</title>
+</head>
+<body class="bg-info">
+	<div class="container d-flex align-items-center"  layout:fragment="content"  style="height:85vh">
+		<form class="col-md-4 offset-md-4 card p-4"  th:action="@{backend/dashboard}" method="get">
+			<div class="form-group row">
+				<label for="staticEmail" class="col-sm-4 col-form-label">Email</label>
+				<div class="col-sm-8">
+					<input type="text"  class="form-control" id="staticEmail"  placeholder="Email">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
+				<div class="col-sm-8">
+					<input type="password" class="form-control" id="inputPassword"
+						placeholder="Password">
+				</div>
+			</div>
+			
+			<div class="form-group row">
+				<label for="inputPassword" class="col-sm-4 col-form-label"></label>
+				<div class="col-sm-8">
+					<input type="submit" class="btn btn-primary"  value="Login">
+				</div>
+			</div>
+			<p class="text-center mt-2">Create Account ? <a href="/register">Register here</a></p>
+		</form>
+	</div>
+</body>
+</html>
